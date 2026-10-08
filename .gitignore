@@ -1,0 +1,33 @@
+# Uploads (keep folder but ignore files)
+assets/uploads/receipts/*
+!assets/uploads/receipts/.gitkeep
+assets/uploads/profiles/*
+!assets/uploads/profiles/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*_backup.php
+*-backup.*
+database/verifyhub_backup.sql
+
+# Railway
+.env
+.env.local
+
+# Temp
+tmp/
+cache/

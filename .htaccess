@@ -1,0 +1,23 @@
+# VerifyHub Root .htaccess for Railway / Apache
+
+Options -Indexes
+RewriteEngine On
+
+# Redirect root to public folder
+RewriteRule ^$ public/ [L]
+
+# Forward all requests to public folder
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L,QSA]
+
+# Block access to sensitive files
+<FilesMatch "\.(env|sql|md|json|lock)$">
+    Require all denied
+</FilesMatch>
+
+# Block access to config folder
+RedirectMatch 403 ^/config/.*$
+RedirectMatch 403 ^/includes/.*$
+RedirectMatch 403 ^/database/.*$
